@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>收银</title>
+
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/receipt.css">
+    <link rel="stylesheet" href="css/myAlert.css">
+
+
+</head>
+<body>
+<div id="content">
+    <div class="top">
+        <div class="leftTop">
+            <!--<span>&#xe634;</span>-->
+        </div>
+        <div class="titleTop">收银</div>
+        <div class="rightTop">
+            <span>&#xe65d;</span>
+        </div>
+    </div>
+    <div class="middle">
+        <form action="" id="form">
+            <ul>
+                <li>
+                    <div class="member">
+                        <span>会员：</span>
+                        <input type="text" id="memTxt" value="" autofocus>
+                        <span id="mem-icon">&#xe6be;</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="money">
+                        <span>金额：</span>
+                        <div class="text" id="monTxt"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="number">
+                        <span>油枪：</span>
+                        <div class="text" id="numTxt"></div>
+                    </div>
+                </li>
+                <li id="payClass">
+                    <div class="payClass">
+                        <div class="payClass-item">
+                            <span>&#xe63e;</span>
+                            <h4>微信</h4>
+                        </div>
+                        <div class="payClass-item">
+                            <span>&#xe72f;</span>
+                            <h4>现金</h4>
+                        </div>
+                        <div class="payClass-item">
+                            <span>&#xe633;</span>
+                            <h4>刷卡</h4>
+                        </div>
+                        <div class="payClass-item">
+                            <span>&#xe806;</span>
+                            <h4>支付宝</h4>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="foot">
+
+    </div>
+</div>
+<!--手机自定义键盘-->
+<div class="layer-content1">
+    <div class="form_edit1 clearfix">
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num num2">100</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+        <div class="num num2">200</div>
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
+        <div class="num num2">300</div>
+        <div class="num">.</div>
+        <div class="num">0</div>
+        <div class="num">00</div>
+        <div id="remove">删除</div>
+    </div>
+</div>
+<!--编号-->
+<div class="layer-content2">
+    <div class="form_edit2 clearfix">
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
+        <div class="num">10</div>
+        <div class="num">11</div>
+        <div class="num">12</div>
+        <div class="num">13</div>
+        <div class="num">14</div>
+        <div class="num">15</div>
+        <div class="num">16</div>
+        <div class="num">17</div>
+        <div class="num">18</div>
+        <div class="num">19</div>
+        <div class="num">20</div>
+    </div>
+</div>
+
+
+</body>
+
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/myAlert.js"></script>
+<script>
+    // 点击取消会员
+    $("#mem-icon").click(function () {
+        $("#memTxt").attr("value","");
+    })
+
+
+
+    // 点击出现键盘
+    $("#monTxt").click(function (e) {
+        $('.layer-content1').animate({
+            bottom: 0
+        }, 200)
+        e.stopPropagation();
+        $(".layer-content2").css("display","none");
+        $(".layer-content1").css("display","block");
+    })
+    // 点击取消键盘
+    $('#content').click(function(){
+        $('.layer-content1').animate({
+            bottom: '-200px'
+        }, 200)
+        $(".layer-content1").css("display","none");
+    })
+
+    // 键盘输入金额值
+    $('.form_edit1 .num').click(function(){
+        var oDiv = $("#monTxt");
+
+        var temp=oDiv.innerHTML + this.innerHTML;
+        if(temp.length>6){
+            $.myToast("金额过大");
+        }else {
+            oDiv.innerHTML = temp;
+        }
+    })
+    // 键盘输入100,200,300金额值
+    $('.form_edit1 .num2').click(function(){
+        var oDiv = $("#monTxt");
+        oDiv.innerHTML = this.innerHTML;
+    })
+    // 删除取消金额输入值
+    $('#remove').click(function(){
+        var oDiv = $("#monTxt");
+        var oDivHtml = oDiv.innerHTML;
+        oDiv.innerHTML = oDivHtml.substring(0,oDivHtml.length-1);
+    })
+
+
+
+    // 点击出现编号
+    $("#numTxt").click(function (e) {
+        $('.layer-content2').animate({
+            bottom: 0
+        }, 200)
+        e.stopPropagation();
+        $(".layer-content2").css("display","block");
+    })
+    // 点击取消编号
+    $('#content').click(function(){
+        $('.layer-content2').animate({
+            bottom: '-200px'
+        }, 200)
+        $(".layer-content2").css("display","none");
+    })
+
+    // 点击输入编号
+    $('.form_edit2 .num').click(function(){
+        var oDiv = $("#numTxt");
+        oDiv.innerHTML = this.innerHTML;
+    })
+</script>
+
+</html>
