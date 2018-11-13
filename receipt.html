@@ -152,7 +152,7 @@
 
     // 键盘输入金额值
     $('.form_edit1 .num').click(function(){
-        var oDiv = $("#monTxt");
+        var oDiv = document.getElementById("monTxt");
 
         var temp=oDiv.innerHTML + this.innerHTML;
         if(temp.length>6){
@@ -163,12 +163,12 @@
     })
     // 键盘输入100,200,300金额值
     $('.form_edit1 .num2').click(function(){
-        var oDiv = $("#monTxt");
+        var oDiv = document.getElementById("monTxt");
         oDiv.innerHTML = this.innerHTML;
     })
     // 删除取消金额输入值
     $('#remove').click(function(){
-        var oDiv = $("#monTxt");
+        var oDiv = document.getElementById("monTxt");
         var oDivHtml = oDiv.innerHTML;
         oDiv.innerHTML = oDivHtml.substring(0,oDivHtml.length-1);
     })
@@ -193,7 +193,7 @@
 
     // 点击输入编号
     $('.form_edit2 .num').click(function(){
-        var oDiv = $("#numTxt");
+        var oDiv = document.getElementById("numTxt");
         oDiv.innerHTML = this.innerHTML;
     })
 </script>
