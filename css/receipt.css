@@ -21,7 +21,7 @@
 }
 .top{
     width: 100%;
-    height: 8%;
+    height: 40px;
     display: block;
     border-bottom: 2px solid #c8c8c8;
 }
@@ -35,7 +35,6 @@
     height: 100%;
     float: left;
     text-align: center;
-    padding: 2% 0px 0px;
 }
 .leftTop span{
     font-size: 30px;
@@ -51,19 +50,20 @@
     color: white;
     font-weight: bold;
     text-align: center;
-    padding: 3% 0px;
+    line-height: 40px;
 }
 .rightTop{
     width: 15%;
     height: 100%;
     float: right;
     text-align: center;
-    padding: 2% 0px 0px;
 }
 .rightTop span{
     font-size: 30px;
     font-family: "iconfont";
     color: #e6e6e6;
+    display: block;
+    line-height: 40px;
 }
 
 /*form表单*/
@@ -100,6 +100,7 @@
     font-size: 18px;
     font-family: "iconfont";
     float: right;
+    line-height: 30px;
 }
 .text{
     width: 74%;
