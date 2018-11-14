@@ -237,7 +237,10 @@
         $("#memTxt").val(oDivHtml.substring(0,oDivHtml.length-1));
         //oDiv.innerHTML = oDivHtml.substring(0,oDivHtml.length-1);
     })
-
+    // 取消手机键盘
+    $("#memTxt").focus(function(){
+        document.activeElement.blur();
+    });
 
 
     // 点击出现金额键盘
