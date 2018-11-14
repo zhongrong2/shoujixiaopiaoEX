@@ -231,9 +231,26 @@
 
 
     // 粘贴文本
-    $(".memTxt").focus(function () {
+    /*function aa(){
+        newT=document.selection.createRange()
+        clipboardData.setData("Text",newT.text)
+        document.all.pp.value=clipboardData.getData("Text")
+    }*/
+    /*$(".memTxt").focus(function () {
+        newT=document.selection.createRange()
+        clipboardData.setData("Text",newT.text)
+        document.all.pp.value=clipboardData.getData("Text")
         $(".memTxt").val("1");
-    })
+    })*/
+
+
+
+    //接收android传递的数据，并显示在html上
+    function AndroidToWeb(scan){
+        $("#memTxt"). val(scan);
+    }
+    /*var str="aaaaaaaaa"
+    $("#memTxt"). val(str);*/
 </script>
 
 </html>
