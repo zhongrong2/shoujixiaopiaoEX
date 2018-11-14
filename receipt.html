@@ -48,19 +48,19 @@
                 </li>
                 <li id="payClass">
                     <div class="payClass">
-                        <div class="payClass-item">
+                        <div class="payClass-item" onclick="note()">
                             <span>&#xe63e;</span>
                             <h4>微信</h4>
                         </div>
-                        <div class="payClass-item">
+                        <div class="payClass-item" onclick="note()">
                             <span>&#xe72f;</span>
                             <h4>现金</h4>
                         </div>
-                        <div class="payClass-item">
+                        <div class="payClass-item" onclick="note()">
                             <span>&#xe633;</span>
                             <h4>刷卡</h4>
                         </div>
-                        <div class="payClass-item">
+                        <div class="payClass-item" onclick="note()">
                             <span>&#xe806;</span>
                             <h4>支付宝</h4>
                         </div>
@@ -71,6 +71,23 @@
     </div>
     <div class="foot">
 
+    </div>
+</div>
+<!--手机号键盘-->
+<div class="layer-content">
+    <div class="form_edit clearfix">
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
+        <div class="num">.</div>
+        <div class="num">0</div>
+        <div id="removeTele">删除</div>
     </div>
 </div>
 <!--手机自定义键盘-->
@@ -97,42 +114,70 @@
 <!--编号-->
 <div class="layer-content2">
     <div class="form_edit2 clearfix">
-        <div class="num">1</div>
-        <div class="num">2</div>
-        <div class="num">3</div>
-        <div class="num">4</div>
-        <div class="num">5</div>
-        <div class="num">6</div>
-        <div class="num">7</div>
-        <div class="num">8</div>
-        <div class="num">9</div>
-        <div class="num">10</div>
-        <div class="num">11</div>
-        <div class="num">12</div>
-        <div class="num">13</div>
-        <div class="num">14</div>
-        <div class="num">15</div>
-        <div class="num">16</div>
-        <div class="num">17</div>
-        <div class="num">18</div>
-        <div class="num">19</div>
-        <div class="num">20</div>
-        <div class="num">21</div>
-        <div class="num">22</div>
-        <div class="num">23</div>
-        <div class="num">24</div>
-        <div class="num">25</div>
-        <div class="num">26</div>
-        <div class="num">27</div>
-        <div class="num">28</div>
-        <div class="num">29</div>
-        <div class="num">30</div>
-        <div class="num">31</div>
-        <div class="num">32</div>
-        <div class="num">33</div>
-        <div class="num">34</div>
-        <div class="num">35</div>
-        <div class="num">36</div>
+        <div class="num">
+            1
+            <span>0#</span>
+        </div>
+        <div class="num">
+            2
+            <span>-10#</span>
+        </div>
+        <div class="num">
+            3
+            <span>0#</span>
+        </div>
+        <div class="num">
+            4
+            <span>-10#</span>
+        </div>
+        <div class="num">
+            5
+            <span>-10#</span>
+        </div>
+        <div class="num">
+            6
+            <span>0#</span>
+        </div>
+        <div class="num">
+            7
+            <span>-10#</span>
+        </div>
+        <div class="num">
+            8
+            <span>0#</span>
+        </div>
+        <div class="num">
+            9
+            <span>92#</span>
+        </div>
+        <div class="num">
+            10
+            <span>92#</span>
+        </div>
+        <div class="num">
+            11
+            <span>92#</span>
+        </div>
+        <div class="num">
+            12
+            <span>92#</span>
+        </div>
+        <div class="num">
+            13
+            <span>95#</span>
+        </div>
+        <div class="num">
+            14
+            <span>92#</span>
+        </div>
+        <div class="num">
+            15
+            <span>95#</span>
+        </div>
+        <div class="num">
+            16
+            <span>92#</span>
+        </div>
     </div>
 </div>
 
@@ -150,16 +195,62 @@
     })
 
 
-    // 点击出现键盘
+    // 点击出现手机号键盘
+    $("#memTxt").click(function (e) {
+        $('.layer-content').animate({
+            bottom: 0
+        }, 200)
+        e.stopPropagation();
+        $('.layer-content1').animate({
+            bottom: '-200px'
+        }, 200)
+        $(".layer-content1").css("display","none");
+        $(".layer-content2").css("display","none");
+        $(".layer-content").css("display","block");
+    })
+    // 点击取消手机号键盘
+    $('#content').click(function(){
+        $('.layer-content').animate({
+            bottom: '-200px'
+        }, 200)
+        $(".layer-content").css("display","none");
+    })
+
+    // 点击输入手机号
+    $('.form_edit .num').click(function(){
+        var telephone = $("#memTxt").val();
+        var tel= telephone + $(this).text();
+
+        if(telephone.length==0 && ($(this).text()=='0')||$(this).text()=='.'){
+            return
+        }
+        if(telephone.length>=11){
+            return
+        }
+        else{
+            $("#memTxt").val(tel);
+        }
+    })
+    // 删除取消手机号输入值
+    $('#removeTele').click(function(){
+        var oDivHtml = $("#memTxt").val();
+        $("#memTxt").val(oDivHtml.substring(0,oDivHtml.length-1));
+        //oDiv.innerHTML = oDivHtml.substring(0,oDivHtml.length-1);
+    })
+
+
+
+    // 点击出现金额键盘
     $("#monTxt").click(function (e) {
         $('.layer-content1').animate({
             bottom: 0
         }, 200)
         e.stopPropagation();
+        $(".layer-content").css("display","none");
         $(".layer-content2").css("display","none");
         $(".layer-content1").css("display","block");
     })
-    // 点击取消键盘
+    // 点击取消金额键盘
     $('#content').click(function(){
         $('.layer-content1').animate({
             bottom: '-200px'
@@ -213,6 +304,8 @@
             bottom: 0
         }, 200)
         e.stopPropagation();
+        $(".layer-content").css("display","none");
+        $(".layer-content1").css("display","none");
         $(".layer-content2").css("display","block");
     })
     // 点击取消编号
@@ -225,32 +318,66 @@
 
     // 点击输入编号
     $('.form_edit2 .num').click(function(){
-        var oDiv = document.getElementById("numTxt");
-        oDiv.innerHTML = this.innerHTML;
+        var numTxt = $("#numTxt");
+
+        numTxt.text($(this).text());
     })
 
 
     // 粘贴文本
-    /*function aa(){
-        newT=document.selection.createRange()
-        clipboardData.setData("Text",newT.text)
-        document.all.pp.value=clipboardData.getData("Text")
-    }*/
-    /*$(".memTxt").focus(function () {
-        newT=document.selection.createRange()
-        clipboardData.setData("Text",newT.text)
-        document.all.pp.value=clipboardData.getData("Text")
-        $(".memTxt").val("1");
-    })*/
-
-
-
     //接收android传递的数据，并显示在html上
     function AndroidToWeb(scan){
         $("#memTxt"). val(scan);
     }
-    /*var str="aaaaaaaaa"
-    $("#memTxt"). val(str);*/
+
+
+
+
+    // 跳转小票页面
+    function note() {
+        // 发送数据
+        var memTxt=$("#memTxt").val();
+        var monTxt=$("#monTxt").text();
+        var numTxt=$("#numTxt").text();
+
+
+        // 判断不为空
+        if(memTxt==""){
+            $.myToast("请输入手机号");
+            return;
+        }
+        else{
+            if(memTxt.length!=11){
+                $.myToast("请输入正确手机号");
+                return;
+            }
+            else{
+                if(monTxt==""){
+                    $.myToast("请选择金额");
+                    return;
+                }
+                else{
+                    if(numTxt==""){
+                        $.myToast("请选择油枪");
+                        return;
+                    }
+                }
+            }
+        }
+
+        var datas=[memTxt,monTxt,numTxt];
+        console.log(datas);
+        $.ajax({
+            url:"qqq",
+            method:"post",
+            data:"datas",
+            dataType:"json",
+            success:function () {
+                window.location.href="noteRece.html";
+            }
+        })
+        window.location.href="noteRece.html";
+    }
 </script>
 
 </html>

@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 915928 */
+    src: url('https://at.alicdn.com/t/font_915928_5k5n1rvfo36.eot');
+    src: url('https://at.alicdn.com/t/font_915928_5k5n1rvfo36.eot?#iefix') format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_915928_5k5n1rvfo36.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_915928_5k5n1rvfo36.ttf') format('truetype'),
+    url('https://at.alicdn.com/t/font_915928_5k5n1rvfo36.svg#iconfont') format('svg');
+}
+
+
+
+
+
+
+
+
+#content{
+    width: 100%;
+    height: 100%;
+}
+.top{
+    width: 100%;
+    height: 40px;
+    display: block;
+    border-bottom: 2px solid #212121;
+}
+.middle{
+    width: 100%;
+    height: 92%;
+    display: block;
+}
+.leftTop{
+    width: 15%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+.leftTop span{
+    font-size: 30px;
+    font-family: "iconfont";
+    color: #212121;
+}
+.titleTop{
+    width: 70%;
+    height: 100%;
+    float: left;
+    font-size: 18px;
+    font-family: 微软雅黑;
+    color: #212121;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+}
+.rightTop{
+    width: 15%;
+    height: 100%;
+    float: right;
+    text-align: center;
+}
+.rightTop span{
+    font-size: 30px;
+    font-family: "iconfont";
+    color: #212121;
+    display: block;
+    line-height: 40px;
+}
+
+/*小票内容*/
+.middle ul{
+    width: 100%;
+    height: auto;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed black;
+}
+.note1 li,.note2 li{
+    padding:2px 40px;
+}
+.note1 h5,.note2 h5{
+    width: 36%;
+    height: 16px;
+    font-size: 14px;
+    font-family: "微软雅黑 Light";
+    font-weight: 600;
+    line-height: 16px;
+    color: black;
+    display: inline-block;
+    text-align: left;
+}
+.note1 span,.note2 span{
+    width: 60%;
+    height: 16px;
+    font-size: 16px;
+    font-family: "微软雅黑 Light";
+    line-height: 16px;
+    color: black;
+    display: inline-block;
+    text-align: left;
+}
+.note3{
+    border-bottom: 0px!important;
+}
+.note3 p{
+    text-align: center;
+}
