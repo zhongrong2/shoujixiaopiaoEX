@@ -205,54 +205,6 @@ function AndroidToWeb(scan){
                     window.location.href="noteRece.html";
                 }
             });
-            //window.location.href="noteRece.html";
+            window.location.href="noteRece.html";
     })
 }
-/*
-function note() {
-    // 发送数据
-    var memTxt=$("#memTxt").val();
-    var tel=$("#Tele").val();
-    var monTxt=$("#monTxt").text();
-    var numTxt=$("#numTxt").text();
-    var payClass=$(this).find("h4").eq(0).text();
-    console.log(payClass);
-
-
-    // 判断不为空
-    if(memTxt==""&&tel==""){
-        $.myToast("请输入手机号或电子会员卡号");
-        return;
-    }
-    else{
-        if(tel!=""&&tel.length!=11){
-            $.myToast("请输入正确手机号");
-            return;
-        }
-        else{
-            if(monTxt==""){
-                $.myToast("请选择金额");
-                return;
-            }
-            else{
-                if(numTxt==""){
-                    $.myToast("请选择油枪");
-                    return;
-                }
-            }
-        }
-    }
-
-    var datas=[memTxt,tel,monTxt,numTxt];
-    console.log(datas);
-    $.ajax({
-        url:"qqq",
-        method:"post",
-        data:"datas",
-        dataType:"json",
-        success:function () {
-            window.location.href="noteRece.html";
-        }
-    })
-    //window.location.href="noteRece.html";
-}*/
