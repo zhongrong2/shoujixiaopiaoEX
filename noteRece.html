@@ -27,41 +27,41 @@
         <ul class="note1">
             <li>
                 <h5>单号：</h5>
-                <span>111111111111111111</span>
+                <span id="memVal"></span>
             </li>
             <li>
                 <h5>门店：</h5>
-                <span>1站</span>
+                <span id="address">1站</span>
             </li>
             <li>
                 <h5>油品：</h5>
-                <span>92汽油</span>
+                <span id="gunClass">92汽油</span>
             </li>
             <li>
                 <h5>时间：</h5>
-                <span>2018-11-04</span>
+                <span id="time">2018-11-04</span>
             </li>
         </ul>
         <ul class="note2">
             <li>
                 <h5>应收金额：</h5>
-                <span>111</span>
+                <span id="amount">111</span>
             </li>
             <li>
                 <h5>优惠金额：</h5>
-                <span>111</span>
+                <span id="disAmount">111</span>
             </li>
             <li>
                 <h5>实收金额：</h5>
-                <span>200</span>
+                <span id="netAmount">200</span>
             </li>
             <li>
                 <h5>支付方式：</h5>
-                <span>微信</span>
+                <span id="pay">微信</span>
             </li>
             <li>
                 <h5>手机号码：</h5>
-                <span>1111111111</span>
+                <span id="tel">1111111111</span>
             </li>
         </ul>
         <ul class="note3">
@@ -75,4 +75,25 @@
     </div>
 </div>
 </body>
+<script src="js/jquery-2.1.3.min.js"></script>
+
+<script>
+    $.ajax({
+        url:"data.json",
+        method:"get",
+        dataType:"json",
+        success:function (data) {
+            $("#memVal").text(data.memVal);
+            $("#address").text(data.address);
+            $("#gunClass").text(data.gunClass);
+            $("#time").text(data.time);
+            $("#amount").text(data.amount);
+            $("#disAmount").text(data.disAmount);
+            $("#netAmount").text(data.netAmount);
+            $("#pay").text(data.pay);
+            $("#tel").text(data.tel);
+        }
+    })
+</script>
+
 </html>

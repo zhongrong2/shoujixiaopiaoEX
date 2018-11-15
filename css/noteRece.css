@@ -75,10 +75,10 @@
     border-bottom: 1px dashed black;
 }
 .note1 li,.note2 li{
-    padding:2px 14px;
+    padding:2px 8px;
 }
 .note1 h5,.note2 h5{
-    width: 38%;
+    width: 40%;
     height: 16px;
     font-size: 14px;
     font-family: "微软雅黑 Light";
@@ -89,7 +89,7 @@
     text-align: left;
 }
 .note1 span,.note2 span{
-    width: 60%;
+    width: 56%;
     height: 16px;
     font-size: 16px;
     font-family: "微软雅黑 Light";
