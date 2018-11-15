@@ -35,6 +35,13 @@
                     </div>
                 </li>
                 <li>
+                    <div class="tele">
+                        <span>手机号：</span>
+                        <input type="text" id="Tele" class="telephone" value="" autofocus>
+                        <span id="tel-icon">&#xe6be;</span>
+                    </div>
+                </li>
+                <li>
                     <div class="money">
                         <span>金额：</span>
                         <div class="text" id="monTxt"></div>
@@ -195,8 +202,20 @@
     })
 
 
+    // 取消电子会员光标
+    $("#memTxt").focus(function(){
+        document.activeElement.blur();
+    });
+    // 点击清空手机号
+    $("#tel-icon").click(function () {
+        $("#Tele").val("");
+    })
+
+
+
+
     // 点击出现手机号键盘
-    $("#memTxt").click(function (e) {
+    $("#Tele").click(function (e) {
         $('.layer-content').animate({
             bottom: 0
         }, 200)
@@ -216,9 +235,9 @@
         $(".layer-content").css("display","none");
     })
 
-    /*// 点击输入手机号
+    // 点击输入手机号
     $('.form_edit .num').click(function(){
-        var telephone = $("#memTxt").val();
+        var telephone = $("#Tele").val();
         var tel= telephone + $(this).text();
 
         if(telephone.length==0 && ($(this).text()=='0')||$(this).text()=='.'){
@@ -228,19 +247,15 @@
             return
         }
         else{
-            $("#memTxt").val(tel);
+            $("#Tele").val(tel);
         }
     })
     // 删除取消手机号输入值
     $('#removeTele').click(function(){
-        var oDivHtml = $("#memTxt").val();
-        $("#memTxt").val(oDivHtml.substring(0,oDivHtml.length-1));
-        //oDiv.innerHTML = oDivHtml.substring(0,oDivHtml.length-1);
-    })*/
-    // 取消手机键盘
-    $("#memTxt").focus(function(){
-        document.activeElement.blur();
-    });
+        var oDivHtml = $("#Tele").val();
+        $("#Tele").val(oDivHtml.substring(0,oDivHtml.length-1));
+    })
+
 
 
     // 点击出现金额键盘
@@ -340,17 +355,18 @@
     function note() {
         // 发送数据
         var memTxt=$("#memTxt").val();
+        var tel=$("#Tele").val();
         var monTxt=$("#monTxt").text();
         var numTxt=$("#numTxt").text();
 
 
         // 判断不为空
-        if(memTxt==""){
-            $.myToast("请输入手机号");
+        if(memTxt==""&&tel==""){
+            $.myToast("请输入手机号或电子会员卡号");
             return;
         }
         else{
-            if(memTxt.length!=11){
+            if(tel!=""&&tel.length!=11){
                 $.myToast("请输入正确手机号");
                 return;
             }
@@ -368,7 +384,7 @@
             }
         }
 
-        var datas=[memTxt,monTxt,numTxt];
+        var datas=[memTxt,tel,monTxt,numTxt];
         console.log(datas);
         $.ajax({
             url:"qqq",
